@@ -9,10 +9,10 @@ describe('US-00 : Funcionalidade: Busca de filmes', () => {
         cy.screenshot()
     })
 
-    it.only('Deve buscar filmes com sucesso', () => {
+    it('Deve buscar filmes com sucesso', () => {
         cy.get('#search-input').type('Matrix')
         cy.get('#search-button').click()
-        cy.get('#results-section').should('contain', 'Matrixsagfaget')
+        cy.get('#results-section').should('contain', 'Matrix')
     });
 
     it('Deve buscar filmes com sucesso de uma lista', () => {
@@ -23,7 +23,7 @@ describe('US-00 : Funcionalidade: Busca de filmes', () => {
         })
     });
 
-    it('Deve buscar filmes com sucesso da lista inteira', () => {
+    it.only('Deve buscar filmes com sucesso da lista inteira', () => {
             cy.fixture('filmes').each((filmes) =>{
                 cy.get('#search-input').clear().type(filmes.titulo)
                 cy.get('#search-button').click()
